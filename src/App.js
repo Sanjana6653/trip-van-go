@@ -3,11 +3,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import BookingPage from "./pages/BookingPage";
-import ConfirmationPage from "./pages/ConfirmationPage";
-import AdminPanel from "./pages/AdminPanel";
-import NotFound from "./pages/NotFound";
+import Index from "./pages/Index.js";
+import BookingPage from "./pages/BookingPage.js";
+import ConfirmationPage from "./pages/ConfirmationPage.js";
+import AdminPanel from "./pages/AdminPanel.js";
+import NotFound from "./pages/NotFound.js";
 
 const queryClient = new QueryClient();
 

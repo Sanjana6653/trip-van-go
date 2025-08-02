@@ -10,7 +10,7 @@ const Home = () => {
   const navigate = useNavigate();
   const trips = bookingService.getTrips();
 
-  const handleBookNow = (trip: any) => {
+  const handleBookNow = (trip) => {
     navigate(`/booking/${trip.id}`);
   };
 

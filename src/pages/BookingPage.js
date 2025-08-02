@@ -15,10 +15,10 @@ const BookingPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  const [trip, setTrip] = useState<any>(null);
+  const [trip, setTrip] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [userName, setUserName] = useState("");
-  const [availability, setAvailability] = useState<{ available: boolean; vansLeft: number } | null>(null);
+  const [availability, setAvailability] = useState(null);
   const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
   const [isBooking, setIsBooking] = useState(false);
 
@@ -38,7 +38,7 @@ const BookingPage = () => {
     }
   }, [tripId, navigate, toast]);
 
-  const handleDateChange = (date: string) => {
+  const handleDateChange = (date) => {
     setSelectedDate(date);
     if (date) {
       setIsCheckingAvailability(true);
@@ -76,14 +76,14 @@ const BookingPage = () => {
     
     // Simulate payment processing
     setTimeout(() => {
-      const result = bookingService.createBooking(tripId!, userName, selectedDate);
+      const result = bookingService.createBooking(tripId, userName, selectedDate);
       
       if (result.success) {
         toast({
           title: "Booking Confirmed!",
           description: result.message,
         });
-        navigate(`/confirmation/${result.booking?.id}`);
+        navigate(`/confirmation/${result.booking.id}`);
       } else {
         toast({
           title: "Booking Failed",
@@ -231,7 +231,7 @@ const BookingPage = () => {
                 )}
 
                 {/* Payment Simulation */}
-                {availability?.available && userName && selectedDate && (
+                {availability && availability.available && userName && selectedDate && (
                   <div className="space-y-4 p-4 bg-muted/30 rounded-lg">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CreditCard className="h-4 w-4" />
@@ -245,7 +245,7 @@ const BookingPage = () => {
 
                 <Button
                   onClick={handleBooking}
-                  disabled={!availability?.available || !userName || !selectedDate || isBooking}
+                  disabled={!availability || !availability.available || !userName || !selectedDate || isBooking}
                   className="w-full"
                   size="lg"
                 >

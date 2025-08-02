@@ -3,22 +3,7 @@ import { Button } from "./button";
 import { Badge } from "./badge";
 import { Calendar, Clock, MapPin, Users } from "lucide-react";
 
-interface Trip {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  duration: string;
-  destination: string;
-  maxCapacity: number;
-}
-
-interface TripCardProps {
-  trip: Trip;
-  onBookNow: (trip: Trip) => void;
-}
-
-export const TripCard = ({ trip, onBookNow }: TripCardProps) => {
+export const TripCard = ({ trip, onBookNow }) => {
   return (
     <Card className="group bg-gradient-card hover:shadow-strong transition-all duration-300 hover:scale-105 border-0">
       <CardHeader className="pb-4">

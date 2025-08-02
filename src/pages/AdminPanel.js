@@ -7,7 +7,7 @@ import { bookingService } from "@/lib/booking-service";
 import { Shield, Users, Calendar, TrendingUp, RefreshCw, FileText } from "lucide-react";
 
 const AdminPanel = () => {
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [bookings, setBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadBookings = () => {
@@ -24,7 +24,7 @@ const AdminPanel = () => {
     loadBookings();
   }, []);
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       month: 'short',
@@ -33,7 +33,7 @@ const AdminPanel = () => {
     });
   };
 
-  const formatDateTime = (dateString: string) => {
+  const formatDateTime = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       month: 'short',
@@ -45,7 +45,7 @@ const AdminPanel = () => {
     });
   };
 
-  const getStatusVariant = (status: string) => {
+  const getStatusVariant = (status) => {
     switch (status) {
       case 'confirmed':
         return 'secondary';

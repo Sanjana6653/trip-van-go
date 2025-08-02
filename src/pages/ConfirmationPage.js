@@ -10,8 +10,8 @@ import { CheckCircle, Calendar, MapPin, User, Clock, Home, FileText } from "luci
 const ConfirmationPage = () => {
   const { bookingId } = useParams();
   const navigate = useNavigate();
-  const [booking, setBooking] = useState<any>(null);
-  const [trip, setTrip] = useState<any>(null);
+  const [booking, setBooking] = useState(null);
+  const [trip, setTrip] = useState(null);
 
   useEffect(() => {
     if (bookingId) {
@@ -40,7 +40,7 @@ const ConfirmationPage = () => {
     );
   }
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
@@ -50,7 +50,7 @@ const ConfirmationPage = () => {
     });
   };
 
-  const formatBookingDate = (dateString: string) => {
+  const formatBookingDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       month: 'short',
